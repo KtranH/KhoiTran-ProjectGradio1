@@ -11,8 +11,7 @@ def tab2_interface():
                 random_seed_btn = gr.Button("Tạo seed 📱")
             with gr.Column():
                 input_image = gr.Image(label="Tải ảnh lên", type="numpy", height=512, width=768)
-        submit_btn = gr.Button("Tạo ảnh", interactive=False)
-        with gr.Row():
-            output_image = gr.Image(label="Ảnh đầu ra", height=512, width=768)
         submit_btn = gr.Button("Tạo ảnh 📷", interactive=False)
+        with gr.Row():
+            output_image = gr.Image(label="Ảnh đầu ra", height=512, width=768, interactive=False)
     return tab2

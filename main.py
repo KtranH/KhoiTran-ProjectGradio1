@@ -2,8 +2,10 @@ import gradio as gr
 from tab_gradio.text2image import tab1_interface
 from tab_gradio.img2anime import tab2_interface
 from tab_gradio.instantID import tab3_interface
+from tab_gradio.how_to_use import tab4_interface
 
 with gr.Blocks(theme='argilla/argilla-theme', title='Khôi Trần - AI') as demo:
+    # Header
     with gr.Row():
         gr.Markdown(
             """
@@ -14,13 +16,17 @@ with gr.Blocks(theme='argilla/argilla-theme', title='Khôi Trần - AI') as demo
             """)
     gr.Markdown("### Được phát triển bởi Khôi Trần")
 
+    # Tabs
     with gr.Tab("Tạo ảnh bằng văn bản"):
         tab1_interface()
     with gr.Tab("Tạo ảnh sang anime"):
         tab2_interface()
     with gr.Tab("Tạo ảnh sao chép khuôn mặt"):
         tab3_interface()
+    with gr.Tab("Hướng dẫn sử dụng"):
+        tab4_interface()
 
+    # Footer
     gr.Markdown("#### Lưu ý ⚠️")
     gr.Markdown("* Seed là một số ngẫu nhiên giúp mô hình tạo ra ảnh theo cách khác nhau. Bạn có thể nhập số bất kỳ hoặc nhấn vào nút để tạo số ngẫu nhiên.")
     gr.Markdown("* Chiều rộng và chiều cao ảnh sẽ ảnh hưởng đến chất lượng ảnh. Bạn có thể thử nghiệm với các giá trị khác nhau.")
@@ -28,6 +34,8 @@ with gr.Blocks(theme='argilla/argilla-theme', title='Khôi Trần - AI') as demo
     gr.Markdown("* Đang trong quá trình phát triển nên vẫn có lỗi! Vui lòng không nhập vào từ khóa nhạy cảm.")
 
     gr.Markdown("#### Thông tin 📝")
-    gr.Markdown("")
+    gr.Markdown("* Người phát triển 👨‍💻: [Khôi Trần](https://www.facebook.com/profile.php?id=100072140473156)")
+    gr.Markdown("* Mã nguồn 📦: [GitHub](https://github.com/KtranH/KhoiTran-ProjectGradio1.git)")
+    gr.Markdown("* Liên hệ 📧: hoangkhoi230@gmail.com")
 if __name__ == "__main__":
     demo.launch(show_api=False)

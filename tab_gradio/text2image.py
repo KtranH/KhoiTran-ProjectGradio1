@@ -11,6 +11,6 @@ def tab1_interface():
                 seed_number = gr.Number(label="Thông số Seed", value=99123456999, interactive=True)
                 random_seed_btn = gr.Button("Tạo seed 📱")
             with gr.Row():
-                output_image = gr.Image(label="Ảnh đầu ra", height=512, width=768)
+                output_image = gr.Image(label="Ảnh đầu ra", height=512, width=768, interactive=False)
         submit_btn = gr.Button("Tạo ảnh 📷", interactive=False)
     return tab1

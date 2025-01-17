@@ -5,11 +5,12 @@ import requests
 import numpy as np
 
 from PIL import Image
+from datetime import datetime
 from process.get_image import get_latest_image
 
 URL = "http://127.0.0.1:8188/api/prompt"
 INPUT_DIR = "D:\\ProjectPython\\gradioApp\\input"
-ERROR = "D:\\ProjectPython\\gradioApp\\input\\error"
+ERROR = "D:\\ProjectPython\\gradioApp\\output"
 OUTPUT_DIR = "D:\\ProjectPython\\gradioApp\\output"
 
 cached_seed = 0
@@ -20,24 +21,37 @@ def start_queue(prompt_workflow):
     p = {"prompt": prompt_workflow}
     data = json.dumps(p).encode('utf-8')
     requests.post(URL, data=data)
-def generate_image(input_image, seed_input):
+def generate_image(input_image, rotate_pitch, rotate_yaw, rotate_roll, blink, eyebrow, wink, pupil_x, pupil_y, aaa, eee, woo, smile):
     error_image_path = os.path.join(ERROR, "error.jpg")
+    current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
     try:
-        with open("Model.json", "r", encoding="utf-8") as file_json:
+        with open("json/Live_Portait.json", "r", encoding="utf-8") as file_json:
             prompt = json.load(file_json)
 
-            prompt["130"]["inputs"]["image"] = os.path.join(INPUT_DIR, "Test_api.png")
-            prompt["129"]["inputs"]["file_path"] = OUTPUT_DIR
-            prompt["67"]["inputs"]["seed"] = seed_input
-            
+            prompt["17"]["inputs"]["image"] = os.path.join(INPUT_DIR, "InputImage_" + current_time + ".png")
+            prompt["16"]["inputs"]["file_path"] = os.path.join(OUTPUT_DIR, "OutputImage_" + current_time + ".png")
+            prompt["14"]["inputs"]["rotate_pitch"] = rotate_pitch
+            prompt["14"]["inputs"]["rotate_yaw"] = rotate_yaw
+            prompt["14"]["inputs"]["rotate_roll"] = rotate_roll
+            prompt["14"]["inputs"]["blink"] = blink
+            prompt["14"]["inputs"]["eyebrow"] = eyebrow
+            prompt["14"]["inputs"]["wink"] = wink
+            prompt["14"]["inputs"]["pupil_x"] = pupil_x
+            prompt["14"]["inputs"]["pupil_y"] = pupil_y
+            prompt["14"]["inputs"]["aaa"] = aaa
+            prompt["14"]["inputs"]["eee"] = eee
+            prompt["14"]["inputs"]["woo"] = woo
+            prompt["14"]["inputs"]["smile"] = smile
+
+            # Xử lý ảnh tải lên
             image = Image.fromarray(input_image)
             min_side = min(image.size)
             scale_factor = 512 / min_side
             new_size = (round(image.size[0] * scale_factor), round(image.size[1] * scale_factor))
             resized_image = image.resize(new_size)
+            resized_image.save(os.path.join(INPUT_DIR, "InputImage_" + current_time + ".png"))
 
-            resized_image.save(os.path.join(INPUT_DIR, "Test_api.png"))
-
+            # Bắt đầu quá trình tạo ảnh
             previous_image = get_latest_image(OUTPUT_DIR)
             start_queue(prompt)
 
@@ -48,7 +62,7 @@ def generate_image(input_image, seed_input):
                     return np.array(Image.open(latest_image))
                 
                 elapsed_time += 10
-                time.sleep(2)
+                time.sleep(1)
 
                 if elapsed_time >= max_time:
                     return np.array(Image.open(error_image_path))

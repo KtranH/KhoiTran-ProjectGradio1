@@ -5,18 +5,22 @@ from tab_gradio.instantID import tab3_interface
 from tab_gradio.livePortait import tab5_interface
 from tab_gradio.how_to_use import tab4_interface
 
-with gr.Blocks(theme='argilla/argilla-theme', title='Khôi Trần - AI') as demo:
+with gr.Blocks(theme='ParityError/Interstellar', title='Khôi Trần - AI') as demo:
     # Header
     with gr.Row():
         gr.Markdown(
             """
             <div style="display: flex; align-items: center; gap: 10px;">
                 <img src="https://scontent.fsgn5-15.fna.fbcdn.net/v/t39.30808-1/414203916_385731537174859_3046328303491009574_n.jpg?stp=c0.180.943.943a_dst-jpg_s160x160_tt6&_nc_cat=111&ccb=1-7&_nc_sid=e99d92&_nc_ohc=VsaQ1HabhDgQ7kNvgGF0bOq&_nc_zt=24&_nc_ht=scontent.fsgn5-15.fna&_nc_gid=A5JNss35NBFWueAywFpaRtA&oh=00_AYC4Ggti_5XBzCJUKmPuMs0cjZMZVGiezZ_UngXfebPWRg&oe=678DAF6F" width="60px" style="border-radius: 50%;">
-                <h1>Tạo ảnh với AI</h1>
+                <div>
+                    <div class="header">
+                        <h1>Sáng tạo ảnh với AI 🎨</h1>
+                        <p>Phát triển bởi Khôi Trần</p>
+                    </div>
+                </div>
             </div>
             """)
-    gr.Markdown("### Được phát triển bởi Khôi Trần")
-
+    gr.Markdown("### Chào mừng bạn đến với ứng dụng tạo ảnh với AI. Hãy chọn một trong những chức năng dưới đây để bắt đầu.")
     # Tabs
     with gr.Tab("Tạo ảnh bằng văn bản"):
         tab1_interface()

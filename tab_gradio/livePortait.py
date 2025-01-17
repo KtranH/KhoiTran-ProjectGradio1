@@ -1,5 +1,8 @@
 import gradio as gr
+from process.genImage import generate_image
 
+def check_inputs(input_image):
+    return gr.Button(interactive=True) if input_image is not None else gr.Button(interactive=False)
 def tab5_interface():
     with gr.Blocks() as tab5:
         with gr.Row():
@@ -17,8 +20,21 @@ def tab5_interface():
                 woo = gr.Slider(label="Co dãn miệng dạng woo (Co miệng: số âm, Dãn miệng: số dương)", value=0, maximum=15, minimum=-15, step=1)
                 smile = gr.Slider(label="Mỉm cười (Không cười: số âm, Mỉm cười: số dương)", value=0, maximum=20, minimum=-20, step=1)         
             with gr.Column():
-                input_image = gr.Image(label="Tải ảnh lên", type="numpy", height=1000, width=768)
+                input_image = gr.Image(label="Tải ảnh lên", type="numpy", height=834, width=768)
         submit_btn = gr.Button("Tạo ảnh 📷", interactive=False)
         with gr.Row():
             output_image = gr.Image(label="Ảnh đầu ra", height=512, width=768, interactive=False)
+
+    #Kiểm tra tải ảnh
+    input_image.input(
+        fn=check_inputs, 
+        inputs=[input_image], 
+        outputs=[submit_btn]
+    )
+    #Xử lý nút tạo ảnh
+    submit_btn.click(
+        fn=generate_image, 
+        inputs=[input_image, rotate_pitch, rotate_yaw, rotate_roll, blink, eyebrow, wink, pupil_x, pupil_y, aaa, eee, woo, smile], 
+        outputs=output_image
+    )
     return tab5

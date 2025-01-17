@@ -3,12 +3,18 @@ import json
 import time
 import requests
 import numpy as np
+
 from PIL import Image
+from process.get_image import get_latest_image
 
 URL = "http://127.0.0.1:8188/api/prompt"
 INPUT_DIR = "D:\\ProjectPython\\gradioApp\\input"
 ERROR = "D:\\ProjectPython\\gradioApp\\input\\error"
 OUTPUT_DIR = "D:\\ProjectPython\\gradioApp\\output"
+
+cached_seed = 0
+max_time = 5000
+elapsed_time = 0
 
 def start_queue(prompt_workflow):
     p = {"prompt": prompt_workflow}

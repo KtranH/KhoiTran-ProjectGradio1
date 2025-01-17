@@ -1,0 +1,52 @@
+{
+  "14": {
+    "inputs": {
+      "rotate_pitch": 1.5,
+      "rotate_yaw": 1.5,
+      "rotate_roll": 1,
+      "blink": 0,
+      "eyebrow": 0,
+      "wink": 0,
+      "pupil_x": 0,
+      "pupil_y": 0,
+      "aaa": 20,
+      "eee": 0,
+      "woo": 0,
+      "smile": 0,
+      "src_ratio": 1,
+      "sample_ratio": 1,
+      "sample_parts": "All",
+      "crop_factor": 1.7,
+      "src_image": [
+        "17",
+        0
+      ]
+    },
+    "class_type": "ExpressionEditor",
+    "_meta": {
+      "title": "Expression Editor (PHM)"
+    }
+  },
+  "16": {
+    "inputs": {
+      "file_path": "D:\\\\ProjectPython\\\\gradioApp\\\\output",
+      "images": [
+        "14",
+        0
+      ]
+    },
+    "class_type": "SaveImageToPath",
+    "_meta": {
+      "title": "Save Image To Path"
+    }
+  },
+  "17": {
+    "inputs": {
+      "image": "D:\\ProjectPython\\gradioApp\\output\\output.png"
+    },
+    "class_type": "LoadImageFromPath",
+    "_meta": {
+      "title": "Load Image From Path"
+    }
+  }
+}

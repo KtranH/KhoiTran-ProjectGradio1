@@ -2,6 +2,8 @@ import gradio as gr
 from tab_gradio.text2image import tab1_interface
 from tab_gradio.img2anime import tab2_interface
 from tab_gradio.instantID import tab3_interface
+from tab_gradio.livePortait import tab5_interface
+from tab_gradio.how_to_use import tab4_interface
 
 with gr.Blocks(theme='argilla/argilla-theme', title='Khôi Trần - AI') as demo:
     # Header
@@ -22,6 +24,10 @@ with gr.Blocks(theme='argilla/argilla-theme', title='Khôi Trần - AI') as demo
         tab2_interface()
     with gr.Tab("Tạo ảnh sao chép khuôn mặt"):
         tab3_interface()
+    with gr.Tab("Thay đổi biểu cảm khuôn mặt"):
+        tab5_interface()
+    with gr.Tab("Hướng dẫn sử dụng"):
+        tab4_interface()
 
     # Footer
     gr.Markdown("#### Lưu ý ⚠️")

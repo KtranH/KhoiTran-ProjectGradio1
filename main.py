@@ -8,19 +8,31 @@ from tab_gradio.how_to_use import tab4_interface
 with gr.Blocks(theme='ParityError/Interstellar', title='Khôi Trần - AI') as demo:
     # Header
     with gr.Row():
-        gr.Markdown(
-            """
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <img src="https://scontent.fsgn5-15.fna.fbcdn.net/v/t39.30808-1/414203916_385731537174859_3046328303491009574_n.jpg?stp=c0.180.943.943a_dst-jpg_s160x160_tt6&_nc_cat=111&ccb=1-7&_nc_sid=e99d92&_nc_ohc=VsaQ1HabhDgQ7kNvgGF0bOq&_nc_zt=24&_nc_ht=scontent.fsgn5-15.fna&_nc_gid=A5JNss35NBFWueAywFpaRtA&oh=00_AYC4Ggti_5XBzCJUKmPuMs0cjZMZVGiezZ_UngXfebPWRg&oe=678DAF6F" width="60px" style="border-radius: 50%;">
-                <div>
-                    <div class="header">
-                        <h1>Sáng tạo ảnh với AI 🎨</h1>
-                        <p>Phát triển bởi Khôi Trần</p>
+            gr.Markdown(
+                """
+                <div style="position: fixed; top: 0; z-index: 1000; background-color: black; padding: 10px; display: flex; align-items: center; gap: 10px; padding: 5px; margin-bottom: 100px; width: 90%;">
+                    <img src="https://scontent.fsgn5-15.fna.fbcdn.net/v/t39.30808-1/414203916_385731537174859_3046328303491009574_n.jpg?stp=c0.180.943.943a_dst-jpg_s160x160_tt6&_nc_cat=111&ccb=1-7&_nc_sid=e99d92&_nc_ohc=VsaQ1HabhDgQ7kNvgGF0bOq&_nc_zt=24&_nc_ht=scontent.fsgn5-15.fna&_nc_gid=A5JNss35NBFWueAywFpaRtA&oh=00_AYC4Ggti_5XBzCJUKmPuMs0cjZMZVGiezZ_UngXfebPWRg&oe=678DAF6F" 
+                    width="60px" style="border-radius: 50%;">
+                    <div>
+                        <div class="header">
+                            <h1>Sáng tạo ảnh với AI 🎨</h1>
+                            <p>Phát triển bởi Khôi Trần</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            """)
+                """
+            )
+            gr.Markdown(
+                """
+                <div style="padding-top: 80px;">
+                """
+            )
     gr.Markdown("### Chào mừng bạn đến với ứng dụng tạo ảnh với AI. Hãy chọn một trong những chức năng dưới đây để bắt đầu.")
+    gr.Markdown(
+        """
+            <div style="padding-top: 5px;">
+        """
+        )
     # Tabs
     with gr.Tab("Tạo ảnh bằng văn bản"):
         tab1_interface()

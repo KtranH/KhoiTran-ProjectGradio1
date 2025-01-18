@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-def remove_extra_images(folder_path, max_files=100, exclude_file="error.jpg"):
+def remove_extra_images(folder_path, max_files=10, exclude_file="error.jpg"):
     # Kiểm tra đường dẫn folder
     folder = Path(folder_path)
     if not folder.exists() or not folder.is_dir():
@@ -32,7 +32,7 @@ def remove_extra_images(folder_path, max_files=100, exclude_file="error.jpg"):
         print(f"Folder '{folder_path}' có số lượng ảnh hợp lệ: {len(image_files)}.")
 
 
-def check_and_clean_folders(folder1, folder2, max_files=100, exclude_file="error.jpg"):
+def check_and_clean_folders(folder1, folder2, max_files=10, exclude_file="error.jpg"):
     print("Kiểm tra folder 1...")
     remove_extra_images(folder1, max_files, exclude_file)
     print("Kiểm tra folder 2...")

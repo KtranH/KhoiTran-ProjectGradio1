@@ -3,10 +3,15 @@ from tab_gradio.text2image import tab1_interface
 from tab_gradio.img2anime import tab2_interface
 from tab_gradio.instantID import tab3_interface
 from tab_gradio.livePortait import tab5_interface
-from tab_gradio.how_to_use import tab4_interface
-from process.notification import notification_info, notification_warning, notification_error
+from tab_gradio.how_to_use import tab6_interface
+from tab_gradio.coupleAvatar import tab4_interface
+from process.notification import notification_info, notification_warning, notification_warning_load, notification_error
+
+def on_load():
+    notification_warning_load()
 
 with gr.Blocks(theme='ParityError/Interstellar', title='Khôi Trần - AI') as demo:
+    demo.load(on_load)
     # Header
     with gr.Row():
             gr.Markdown(
@@ -44,17 +49,19 @@ with gr.Blocks(theme='ParityError/Interstellar', title='Khôi Trần - AI') as d
         tab3_interface()
     with gr.Tab("Thay đổi biểu cảm khuôn mặt"):
         tab5_interface()
-    with gr.Tab("Hướng dẫn sử dụng"):
+    with gr.Tab("Tạo avatar cặp đôi"):
         tab4_interface()
+    with gr.Tab("Hướng dẫn sử dụng"):
+        tab6_interface()
 
     # Footer
-    gr.Markdown("#### Lưu ý ⚠️")
+    gr.Markdown("### Lưu ý ⚠️")
     gr.Markdown("* Seed là một số ngẫu nhiên giúp mô hình tạo ra ảnh theo cách khác nhau. Bạn có thể nhập số bất kỳ hoặc nhấn vào nút để tạo số ngẫu nhiên.")
     gr.Markdown("* Chiều rộng và chiều cao ảnh sẽ ảnh hưởng đến chất lượng ảnh. Bạn có thể thử nghiệm với các giá trị khác nhau.")
     gr.Markdown("* Bạn có thể mô tả bằng tiếng anh hoặc tiếng việt. Ví dụ như: **A cat in the forest** hoặc **Một con mèo trong rừng**.")
     gr.Markdown("* Đang trong quá trình phát triển nên vẫn có lỗi! Vui lòng không nhập vào từ khóa nhạy cảm.")
 
-    gr.Markdown("#### Thông tin 📝")
+    gr.Markdown("### Thông tin 📝")
     gr.Markdown("* Người phát triển 👨‍💻: [Khôi Trần](https://www.facebook.com/profile.php?id=100072140473156)")
     gr.Markdown("* Mã nguồn 📦: [GitHub](https://github.com/KtranH/KhoiTran-ProjectGradio1.git)")
     gr.Markdown("* Liên hệ 📧: hoangkhoi230@gmail.com")

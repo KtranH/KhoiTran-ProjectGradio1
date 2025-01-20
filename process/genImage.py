@@ -13,9 +13,11 @@ INPUT_DIR = "D:\\ProjectPython\\gradioApp\\input"
 ERROR = "D:\\ProjectPython\\gradioApp\\output"
 OUTPUT_DIR = "D:\\ProjectPython\\gradioApp\\output"
 
+client_id = "null"
 cached_seed = 0
 max_time = 5000
 elapsed_time = 0
+
 
 def start_queue(prompt_workflow):
     p = {"prompt": prompt_workflow}

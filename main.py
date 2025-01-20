@@ -4,6 +4,7 @@ from tab_gradio.img2anime import tab2_interface
 from tab_gradio.instantID import tab3_interface
 from tab_gradio.livePortait import tab5_interface
 from tab_gradio.how_to_use import tab4_interface
+from process.notification import notification_info, notification_warning, notification_error
 
 with gr.Blocks(theme='ParityError/Interstellar', title='Khôi Trần - AI') as demo:
     # Header
@@ -11,7 +12,7 @@ with gr.Blocks(theme='ParityError/Interstellar', title='Khôi Trần - AI') as d
             gr.Markdown(
                 """
                 <div style="position: fixed; top: 0; z-index: 1000; background-color: black; padding: 10px; display: flex; align-items: center; gap: 10px; padding: 5px; margin-bottom: 100px; width: 90%;">
-                    <img src="https://scontent.fsgn5-15.fna.fbcdn.net/v/t39.30808-1/414203916_385731537174859_3046328303491009574_n.jpg?stp=c0.180.943.943a_dst-jpg_s160x160_tt6&_nc_cat=111&ccb=1-7&_nc_sid=e99d92&_nc_ohc=VsaQ1HabhDgQ7kNvgGF0bOq&_nc_zt=24&_nc_ht=scontent.fsgn5-15.fna&_nc_gid=A5JNss35NBFWueAywFpaRtA&oh=00_AYC4Ggti_5XBzCJUKmPuMs0cjZMZVGiezZ_UngXfebPWRg&oe=678DAF6F" 
+                    <img src="https://scontent.fsgn5-15.fna.fbcdn.net/v/t39.30808-1/414203916_385731537174859_3046328303491009574_n.jpg?stp=c0.180.943.943a_dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=e99d92&_nc_ohc=6xTMlIxSmG4Q7kNvgG2-F4r&_nc_zt=24&_nc_ht=scontent.fsgn5-15.fna&_nc_gid=A-ZJ18nsRPPzpLKLPJthVW1&oh=00_AYDtJtE2qNrwRVz0fADze1EZH687dC_Ah6bugfHMY1X_Jw&oe=67939E2F" 
                     width="60px" style="border-radius: 50%;">
                     <div>
                         <div class="header">
@@ -33,6 +34,7 @@ with gr.Blocks(theme='ParityError/Interstellar', title='Khôi Trần - AI') as d
             <div style="padding-top: 5px;">
         """
         )
+
     # Tabs
     with gr.Tab("Tạo ảnh bằng văn bản"):
         tab1_interface()

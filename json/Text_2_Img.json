@@ -1,0 +1,163 @@
+{
+  "7": {
+    "inputs": {
+      "ckpt_name": "SDXL\\moonrideMixes_moonrideLightMix1.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "8": {
+    "inputs": {
+      "text": [
+        "22",
+        0
+      ],
+      "clip": [
+        "28",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "9": {
+    "inputs": {
+      "text": "watermark,long neck,reality,photorealistic,ugly,deformed,noisy,blurry,low contrast,text,open mouth,big forehead,",
+      "clip": [
+        "28",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "11": {
+    "inputs": {
+      "width": 512,
+      "height": 768,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "12": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 227605186335409,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "sgm_uniform",
+      "start_at_step": 0,
+      "end_at_step": 10000,
+      "return_with_leftover_noise": "disable",
+      "preview_method": "auto",
+      "vae_decode": "true",
+      "model": [
+        "28",
+        0
+      ],
+      "positive": [
+        "8",
+        0
+      ],
+      "negative": [
+        "9",
+        0
+      ],
+      "latent_image": [
+        "11",
+        0
+      ],
+      "optional_vae": [
+        "7",
+        2
+      ],
+      "script": [
+        "26",
+        0
+      ]
+    },
+    "class_type": "KSampler Adv. (Efficient)",
+    "_meta": {
+      "title": "KSampler Adv. (Efficient)"
+    }
+  },
+  "22": {
+    "inputs": {
+      "action": "append",
+      "tidy_tags": "yes",
+      "text_a": "1girl, cute girl",
+      "text_b": "",
+      "text_c": "",
+      "result": "1girl, cute girl"
+    },
+    "class_type": "StringFunction|pysssss",
+    "_meta": {
+      "title": "String Function 🐍"
+    }
+  },
+  "26": {
+    "inputs": {
+      "upscale_type": "latent",
+      "hires_ckpt_name": "(use same)",
+      "latent_upscaler": "ttl_nn.SDXL",
+      "pixel_upscaler": "4x-UltraSharp.pth",
+      "upscale_by": 1.25,
+      "use_same_seed": false,
+      "seed": 602329543570945,
+      "hires_steps": 12,
+      "denoise": 0.56,
+      "iterations": 1,
+      "use_controlnet": false,
+      "control_net_name": "CannyXL.safetensors",
+      "strength": 1,
+      "preprocessor": "none",
+      "preprocessor_imgs": false
+    },
+    "class_type": "HighRes-Fix Script",
+    "_meta": {
+      "title": "HighRes-Fix Script"
+    }
+  },
+  "28": {
+    "inputs": {
+      "lora_name": "SDXL\\3DRedmond-3DRenderStyle-3DRenderAF.safetensors",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "7",
+        0
+      ],
+      "clip": [
+        "7",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "29": {
+    "inputs": {
+      "file_path": "D:\\\\ProjectPython\\\\gradioApp\\\\output\\\\text2Img",
+      "images": [
+        "12",
+        5
+      ]
+    },
+    "class_type": "SaveImageToPath",
+    "_meta": {
+      "title": "Save Image To Path"
+    }
+  }
+}

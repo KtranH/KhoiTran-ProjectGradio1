@@ -1,5 +1,5 @@
 import gradio as gr
-from process.genImage import generate_image
+from process.genImage import generate_image_LivePortait
 
 def check_inputs(input_image):
     return gr.Button(interactive=True) if input_image is not None else gr.Button(interactive=False)
@@ -33,7 +33,7 @@ def tab5_interface():
     )
     #Xử lý nút tạo ảnh
     submit_btn.click(
-        fn=generate_image, 
+        fn=generate_image_LivePortait, 
         inputs=[input_image, rotate_pitch, rotate_yaw, rotate_roll, blink, eyebrow, wink, pupil_x, pupil_y, aaa, eee, woo, smile], 
         outputs=output_image
     )

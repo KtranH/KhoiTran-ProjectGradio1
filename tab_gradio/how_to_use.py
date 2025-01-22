@@ -22,9 +22,4 @@ def tab6_interface():
         gr.Markdown(" - Gợi ý ảnh: Ảnh chân dung, cận mặt, càng rõ mặt càng tốt.")
         gr.Markdown(" - Để có kết quả tốt nhất, bạn nên chọn ảnh chất lượng cao.")
         gr.Markdown("![emotion-transfer](https://pub-ed515111f589440fb333ebcd308ee890.r2.dev/857f6a3f-2cb2-4dd3-8f27-c265dbc66cee.jpg)")
-        gr.Markdown("# Tạo avatar cặp đôi (Couple Avatar) 💑")
-        gr.Markdown(" - Bạn có thể tạo avatar cặp đôi từ ảnh của mình.")
-        gr.Markdown(" - Gợi ý mô tả: 'This two-panel image presents a boy and a girl, [LEFT] a boy, while [RIGHT] a girl, creating a fun Pixar scene, clear background, white background'.")
-        gr.Markdown(" - Để có kết quả tốt nhất, bạn nên chọn ảnh chất lượng cao, kích thướt ảnh tốt nhất là 512x768.")
-        gr.Markdown("![couple-avatar](https://pub-ed515111f589440fb333ebcd308ee890.r2.dev/857f6a3f-2cb2-4dd3-8f27-c265dbc66cee.jpg)")
     return tab6

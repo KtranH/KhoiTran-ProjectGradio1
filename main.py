@@ -4,7 +4,7 @@ from tab_gradio.img2anime import tab2_interface
 from tab_gradio.instantID import tab3_interface
 from tab_gradio.livePortait import tab5_interface
 from tab_gradio.how_to_use import tab6_interface
-from tab_gradio.coupleAvatar import tab4_interface
+#from tab_gradio.coupleAvatar import tab4_interface
 from process.notification import notification_info, notification_warning, notification_warning_load, notification_error
 
 def on_load():
@@ -43,14 +43,14 @@ with gr.Blocks(theme='ParityError/Interstellar', title='Khôi Trần - AI') as d
     # Tabs
     with gr.Tab("Tạo ảnh bằng văn bản"):
         tab1_interface()
-    with gr.Tab("Tạo ảnh sang anime"):
+    with gr.Tab("Tạo ảnh sticker từ khuôn mặt của bạn"):
         tab2_interface()
     with gr.Tab("Tạo ảnh sao chép khuôn mặt"):
         tab3_interface()
     with gr.Tab("Thay đổi biểu cảm khuôn mặt"):
         tab5_interface()
-    with gr.Tab("Tạo avatar cặp đôi"):
-        tab4_interface()
+    #with gr.Tab("Tạo avatar cặp đôi"):
+    #    tab4_interface()
     with gr.Tab("Hướng dẫn sử dụng"):
         tab6_interface()
 

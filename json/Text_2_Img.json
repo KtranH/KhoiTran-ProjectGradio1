@@ -15,7 +15,7 @@
         0
       ],
       "clip": [
-        "28",
+        "7",
         1
       ]
     },
@@ -28,7 +28,7 @@
     "inputs": {
       "text": "watermark,long neck,reality,photorealistic,ugly,deformed,noisy,blurry,low contrast,text,open mouth,big forehead,",
       "clip": [
-        "28",
+        "7",
         1
       ]
     },
@@ -62,7 +62,7 @@
       "preview_method": "auto",
       "vae_decode": "true",
       "model": [
-        "28",
+        "7",
         0
       ],
       "positive": [
@@ -126,25 +126,6 @@
     "class_type": "HighRes-Fix Script",
     "_meta": {
       "title": "HighRes-Fix Script"
-    }
-  },
-  "28": {
-    "inputs": {
-      "lora_name": "SDXL\\3DRedmond-3DRenderStyle-3DRenderAF.safetensors",
-      "strength_model": 1,
-      "strength_clip": 1,
-      "model": [
-        "7",
-        0
-      ],
-      "clip": [
-        "7",
-        1
-      ]
-    },
-    "class_type": "LoraLoader",
-    "_meta": {
-      "title": "Load LoRA"
     }
   },
   "29": {

@@ -18,7 +18,7 @@ OUTPUT_DIR_INSTANTID = "D:\\ProjectPython\\gradioApp\\output\\instantID"
 
 client_id = "null"
 cached_seed = 0
-max_time = 5000
+max_time = 50000
 elapsed_time = 0
 
 

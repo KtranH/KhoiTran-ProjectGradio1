@@ -1,7 +1,7 @@
 import gradio as gr
 
-def tab6_interface():
-    with gr.Blocks() as tab6:
+def tab7_interface():
+    with gr.Blocks() as tab7:
         gr.Markdown("# Tạo ảnh bằng văn bản (Text-to-Image) 📜")
         gr.Markdown(" - Bạn có thể tạo ảnh từ mô tả của mình. Mô tả của bạn sẽ được chuyển đổi thành ảnh.")
         gr.Markdown(" - Gợi ý mô tả: 'Một cô gái đang ngồi trên bãi biển, nắng vàng rực rỡ, sóng biển nhẹ nhàng.'")
@@ -22,4 +22,4 @@ def tab6_interface():
         gr.Markdown(" - Gợi ý ảnh: Ảnh chân dung, cận mặt, càng rõ mặt càng tốt.")
         gr.Markdown(" - Để có kết quả tốt nhất, bạn nên chọn ảnh chất lượng cao.")
         gr.Markdown("![emotion-transfer](https://pub-ed515111f589440fb333ebcd308ee890.r2.dev/857f6a3f-2cb2-4dd3-8f27-c265dbc66cee.jpg)")
-    return tab6
+    return tab7

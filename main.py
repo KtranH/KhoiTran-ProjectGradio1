@@ -3,7 +3,8 @@ from tab_gradio.text2image import tab1_interface
 from tab_gradio.img2anime import tab2_interface
 from tab_gradio.instantID import tab3_interface
 from tab_gradio.livePortait import tab5_interface
-from tab_gradio.how_to_use import tab6_interface
+from tab_gradio.chatbot import tab6_interface
+from tab_gradio.how_to_use import tab7_interface
 #from tab_gradio.coupleAvatar import tab4_interface
 from process.notification import notification_info, notification_warning, notification_warning_load, notification_error
 
@@ -51,8 +52,10 @@ with gr.Blocks(theme='ParityError/Interstellar', title='Khôi Trần - AI') as d
         tab5_interface()
     #with gr.Tab("Tạo avatar cặp đôi"):
     #    tab4_interface()
-    with gr.Tab("Hướng dẫn sử dụng"):
+    with gr.Tab("Chatbot"):
         tab6_interface()
+    with gr.Tab("Hướng dẫn sử dụng"):
+        tab7_interface()
 
     # Footer
     gr.Markdown("### Lưu ý ⚠️")

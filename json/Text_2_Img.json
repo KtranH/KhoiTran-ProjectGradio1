@@ -51,7 +51,7 @@
   "12": {
     "inputs": {
       "add_noise": "enable",
-      "noise_seed": 227605186335409,
+      "noise_seed": 169749296715406,
       "steps": 8,
       "cfg": 1,
       "sampler_name": "euler",
@@ -113,7 +113,7 @@
       "pixel_upscaler": "4x-UltraSharp.pth",
       "upscale_by": 1.25,
       "use_same_seed": false,
-      "seed": 636167719930394,
+      "seed": 102838112788345,
       "hires_steps": 4,
       "denoise": 0.5,
       "iterations": 1,

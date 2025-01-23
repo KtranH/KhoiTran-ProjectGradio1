@@ -44,7 +44,7 @@ with gr.Blocks(theme='ParityError/Interstellar', title='Khôi Trần - AI') as d
     # Tabs
     with gr.Tab("Tạo ảnh bằng văn bản"):
         tab1_interface()
-    with gr.Tab("Tạo ảnh sticker từ khuôn mặt của bạn"):
+    with gr.Tab("Tạo ảnh chibi từ ảnh của bạn"):
         tab2_interface()
     with gr.Tab("Tạo ảnh sao chép khuôn mặt"):
         tab3_interface()

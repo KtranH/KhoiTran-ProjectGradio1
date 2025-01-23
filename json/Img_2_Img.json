@@ -25,7 +25,7 @@
         0
       ],
       "image": [
-        "33",
+        "36",
         0
       ],
       "clip_vision": [
@@ -58,7 +58,7 @@
   },
   "8": {
     "inputs": {
-      "seed": 714920196678239,
+      "seed": 51413592785958,
       "steps": 8,
       "cfg": 1,
       "sampler_name": "euler",
@@ -144,7 +144,7 @@
       "pixel_upscaler": "4x-UltraSharp.pth",
       "upscale_by": 1.25,
       "use_same_seed": false,
-      "seed": 436115175957669,
+      "seed": 307471644985645,
       "hires_steps": 4,
       "denoise": 0.5,
       "iterations": 1,
@@ -180,9 +180,9 @@
       "num_beams": 3,
       "do_sample": true,
       "output_mask_select": "",
-      "seed": 29882083308961,
+      "seed": 369040790997438,
       "image": [
-        "33",
+        "36",
         0
       ],
       "florence2_model": [
@@ -217,11 +217,11 @@
       "strength_model": 1,
       "strength_clip": 1,
       "model": [
-        "21",
+        "7",
         0
       ],
       "clip": [
-        "21",
+        "7",
         1
       ]
     },
@@ -275,32 +275,13 @@
       "preprocessor": "CannyEdgePreprocessor",
       "resolution": 512,
       "image": [
-        "33",
+        "36",
         0
       ]
     },
     "class_type": "AIO_Preprocessor",
     "_meta": {
       "title": "AIO Aux Preprocessor"
-    }
-  },
-  "21": {
-    "inputs": {
-      "lora_name": "SDXL\\aodaixl.safetensors",
-      "strength_model": 0.3,
-      "strength_clip": 0.3,
-      "model": [
-        "7",
-        0
-      ],
-      "clip": [
-        "7",
-        1
-      ]
-    },
-    "class_type": "LoraLoader",
-    "_meta": {
-      "title": "Load LoRA"
     }
   },
   "33": {
@@ -323,6 +304,32 @@
     "class_type": "SaveImageToPath",
     "_meta": {
       "title": "Save Image To Path"
+    }
+  },
+  "35": {
+    "inputs": {
+      "model": "u2net_human_seg: human segmentation",
+      "providers": "CPU"
+    },
+    "class_type": "RemBGSession+",
+    "_meta": {
+      "title": "🔧 RemBG Session"
+    }
+  },
+  "36": {
+    "inputs": {
+      "rembg_session": [
+        "35",
+        0
+      ],
+      "image": [
+        "33",
+        0
+      ]
+    },
+    "class_type": "ImageRemoveBackground+",
+    "_meta": {
+      "title": "🔧 Image Remove Background"
     }
   }
 }

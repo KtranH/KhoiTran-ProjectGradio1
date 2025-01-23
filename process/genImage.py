@@ -131,10 +131,11 @@ def generate_image_ImgToImg(seed, input_image, width, height):
             prompt = json.load(file_json)
 
             # Tùy chỉnh thông số tạo ảnh
-            prompt["12"]["inputs"]["noise_seed"] = seed
+            prompt["8"]["inputs"]["seed"] = seed
             prompt["11"]["inputs"]["width"] = width
             prompt["11"]["inputs"]["height"] = height
-            prompt["29"]["inputs"]["file_path"] = os.path.join(OUTPUT_DIR_IMG2IMG, "OutputImage_ImgToImg_" + current_time + ".png")
+            prompt["33"]["inputs"]["image"] = os.path.join(INPUT_DIR, "InputImage_ImgToImg_" + current_time + ".png")
+            prompt["34"]["inputs"]["file_path"] = os.path.join(OUTPUT_DIR_IMG2IMG, "OutputImage_ImgToImg_" + current_time + ".png")
 
             # Xử lý ảnh tải lên
             image = Image.fromarray(input_image)

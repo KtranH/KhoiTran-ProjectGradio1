@@ -18,7 +18,7 @@ with gr.Blocks(theme='ParityError/Interstellar', title='Khôi Trần - AI') as d
             gr.Markdown(
                 """
                 <div style="position: fixed; top: 0; z-index: 1000; background-color: black; padding: 10px; display: flex; align-items: center; gap: 10px; padding: 5px; margin-bottom: 100px; width: 90%;">
-                    <img src="https://scontent.fsgn5-15.fna.fbcdn.net/v/t39.30808-1/414203916_385731537174859_3046328303491009574_n.jpg?stp=c0.180.943.943a_dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=e99d92&_nc_ohc=6xTMlIxSmG4Q7kNvgG2-F4r&_nc_zt=24&_nc_ht=scontent.fsgn5-15.fna&_nc_gid=A-ZJ18nsRPPzpLKLPJthVW1&oh=00_AYDtJtE2qNrwRVz0fADze1EZH687dC_Ah6bugfHMY1X_Jw&oe=67939E2F" 
+                    <img src="https://pub-ed515111f589440fb333ebcd308ee890.r2.dev/476116956_637530651994945_4137383568616611950_n.jpg" 
                     width="60px" style="border-radius: 50%;">
                     <div>
                         <div class="header">
@@ -69,4 +69,4 @@ with gr.Blocks(theme='ParityError/Interstellar', title='Khôi Trần - AI') as d
     gr.Markdown("* Mã nguồn 📦: [GitHub](https://github.com/KtranH/KhoiTran-ProjectGradio1.git)")
     gr.Markdown("* Liên hệ 📧: hoangkhoi230@gmail.com")
 if __name__ == "__main__":
-    demo.launch(show_api=False)
+    demo.launch(show_api=True)

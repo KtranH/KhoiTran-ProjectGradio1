@@ -51,7 +51,7 @@
   "12": {
     "inputs": {
       "add_noise": "enable",
-      "noise_seed": 169749296715406,
+      "noise_seed": 227605186335409,
       "steps": 8,
       "cfg": 1,
       "sampler_name": "euler",
@@ -82,7 +82,7 @@
         2
       ],
       "script": [
-        "26",
+        "30",
         0
       ]
     },
@@ -97,35 +97,11 @@
       "tidy_tags": "yes",
       "text_a": "1girl, cute girl",
       "text_b": "3D style",
-      "text_c": "",
-      "result": "1girl, cute girl, 3D style"
+      "text_c": ""
     },
     "class_type": "StringFunction|pysssss",
     "_meta": {
       "title": "String Function 🐍"
-    }
-  },
-  "26": {
-    "inputs": {
-      "upscale_type": "latent",
-      "hires_ckpt_name": "(use same)",
-      "latent_upscaler": "ttl_nn.SDXL",
-      "pixel_upscaler": "4x-UltraSharp.pth",
-      "upscale_by": 1.25,
-      "use_same_seed": false,
-      "seed": 102838112788345,
-      "hires_steps": 4,
-      "denoise": 0.5,
-      "iterations": 1,
-      "use_controlnet": false,
-      "control_net_name": "CannyXL.safetensors",
-      "strength": 1,
-      "preprocessor": "none",
-      "preprocessor_imgs": false
-    },
-    "class_type": "HighRes-Fix Script",
-    "_meta": {
-      "title": "HighRes-Fix Script"
     }
   },
   "29": {
@@ -139,6 +115,29 @@
     "class_type": "SaveImageToPath",
     "_meta": {
       "title": "Save Image To Path"
+    }
+  },
+  "30": {
+    "inputs": {
+      "upscale_type": "latent",
+      "hires_ckpt_name": "(use same)",
+      "latent_upscaler": "ttl_nn.SDXL",
+      "pixel_upscaler": "4x-UltraSharp.pth",
+      "upscale_by": 1.25,
+      "use_same_seed": false,
+      "seed": 709713276517827,
+      "hires_steps": 4,
+      "denoise": 0.5,
+      "iterations": 1,
+      "use_controlnet": false,
+      "control_net_name": "SD1.5\\control_sd15_inpaint_depth_hand_fp16.safetensors",
+      "strength": 1,
+      "preprocessor": "none",
+      "preprocessor_imgs": false
+    },
+    "class_type": "HighRes-Fix Script",
+    "_meta": {
+      "title": "HighRes-Fix Script"
     }
   }
 }

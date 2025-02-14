@@ -1,4 +1,5 @@
 import gradio as gr
+import time
 from process.create_seed import update_seed
 from process.genImage import generate_image_TextToImage
 
@@ -39,10 +40,21 @@ def tab1_interface():
         inputs=[prompt_text, seed_number], 
         outputs=[submit_btn]
     )
+    
+    # Hàm tạo ảnh với progress bar
+    def generate_image_with_progress(seed, prompt, width, height, model, progress=gr.Progress()):                  
+        image = generate_image_TextToImage(seed, prompt, width, height, model)
+        for i in range(80):
+            progress(i/100, desc="Đang tạo ảnh...")
+            time.sleep(5/80)
+        time.sleep(1)
+        progress(1.0, desc="Hoàn thành!")
+            
+        return image
 
     # Xử lý nút tạo ảnh
     submit_btn.click(
-        fn=generate_image_TextToImage, 
+        fn=generate_image_with_progress, 
         inputs=[seed_number, prompt_text, width_slider, height_slider, model_img], 
         outputs=output_image
     )

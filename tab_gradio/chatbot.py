@@ -128,6 +128,7 @@ def tab6_interface():
         with gr.Row():
             with gr.Column(scale=8):
                 chatbot = gr.Chatbot(
+                    type="messages",
                     height=800,
                     show_label=False,
                     container=True,

@@ -7,7 +7,7 @@ import gradio as gr
 
 from PIL import Image
 from datetime import datetime
-from process.get_image import get_latest_image_LivePortait, get_latest_image_TextToImage, get_latest_image_ImgToImg
+from process.get_image import get_latest_image_LivePortait, get_latest_image_TextToImage, get_latest_image_ImgToImg, get_latest_image_InstantID
 
 URL = "http://127.0.0.1:8188/api/prompt"
 INPUT_DIR = "D:\\ProjectPython\\gradioApp\\input"
@@ -167,3 +167,48 @@ def generate_image_ImgToImg(seed, input_image, width, height):
         gr.Error("Đã xảy ra lỗi! Vui lòng thử lại.", duration=3)
         return np.array(Image.open(error_image_path))
 # Hàm tạo ảnh cho chức năng tạo ảnh sao chép khuôn mặt
+def generate_instant_id(seed, input_image, prompt_text, width, height, weight_instantid):
+    error_image_path = os.path.join(ERROR, "error.jpg")
+    current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
+    try:
+        with open("json/Instant_ID.json", "r", encoding="utf-8") as file_json:
+            prompt = json.load(file_json)
+
+            # Tùy chỉnh thông số tạo ảnh
+            prompt["357"]["inputs"]["seed"] = seed
+            prompt["345"]["inputs"]["width"] = width
+            prompt["345"]["inputs"]["height"] = height
+            prompt["383"]["inputs"]["text_a"] = prompt_text
+            prompt["336"]["inputs"]["weight"] = weight_instantid
+            prompt["416"]["inputs"]["image"] = os.path.join(INPUT_DIR, "InputImage_InstantID_" + current_time + ".png")
+            prompt["417"]["inputs"]["file_path"] = os.path.join(OUTPUT_DIR_INSTANTID, "OutputImage_InstantID_" + current_time + ".png")
+
+            # Xử lý ảnh tải lên
+            image = Image.fromarray(input_image)
+            min_side = min(image.size)
+            scale_factor = 512 / min_side
+            new_size = (round(image.size[0] * scale_factor), round(image.size[1] * scale_factor))
+            resized_image = image.resize(new_size)
+            resized_image.save(os.path.join(INPUT_DIR, "InputImage_InstantID_" + current_time + ".png"))
+
+            # Bắt đầu quá trình tạo ảnh
+            previous_image = get_latest_image_InstantID(OUTPUT_DIR_INSTANTID)
+            start_queue(prompt)
+
+            global elapsed_time
+            while True:
+                latest_image = get_latest_image_InstantID(OUTPUT_DIR_INSTANTID)
+                if latest_image != previous_image:
+                    return np.array(Image.open(latest_image))
+                
+                elapsed_time += 10
+                time.sleep(1)
+
+                if elapsed_time >= max_time:
+                    gr.Error("Đã xảy ra lỗi! Vui lòng thử lại.", duration=3)
+                    return np.array(Image.open(error_image_path))
+                
+    except Exception as e:
+        print("An error occurred:", str(e))
+        gr.Error("Đã xảy ra lỗi! Vui lòng thử lại.", duration=3)
+        return np.array(Image.open(error_image_path))

@@ -216,7 +216,7 @@ def generate_instant_id(seed, input_image, prompt_text, width, height, weight_in
         return np.array(Image.open(error_image_path))
 
 # Hàm tạo ảnh cho chức năng tạo ảnh sao chép khuôn mặt (HyperLora)
-def generate_instant_id_hyperlora(seed, input_image, prompt_text, width, height, weight_instantid):
+def generate_instant_id_hyperlora(seed, input_image, input_image2, prompt_text, width, height, hyper_lora):
     error_image_path = os.path.join(ERROR, "error.jpg")
     current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
     try:
@@ -224,13 +224,15 @@ def generate_instant_id_hyperlora(seed, input_image, prompt_text, width, height,
             prompt = json.load(file_json)
 
             # Tùy chỉnh thông số tạo ảnh
-            prompt["357"]["inputs"]["seed"] = seed
-            prompt["345"]["inputs"]["width"] = width
-            prompt["345"]["inputs"]["height"] = height
-            prompt["383"]["inputs"]["text_a"] = prompt_text
-            prompt["336"]["inputs"]["weight"] = weight_instantid
-            prompt["416"]["inputs"]["image"] = os.path.join(INPUT_DIR, "InputImage_InstantID_hyperlora_" + current_time + ".png")
-            prompt["417"]["inputs"]["file_path"] = os.path.join(OUTPUT_DIR_INSTANTID_HYPERLORA, "OutputImage_InstantID_hyperlora_" + current_time + ".png")
+            prompt["58"]["inputs"]["noise_seed"] = seed
+            prompt["11"]["inputs"]["width"] = width
+            prompt["11"]["inputs"]["height"] = height
+            prompt["22"]["inputs"]["text_a"] = prompt_text
+            prompt["40"]["inputs"]["weight"] = hyper_lora
+            prompt["41"]["inputs"]["image"] = os.path.join(INPUT_DIR, "InputImage_InstantID_hyperlora_1" + current_time + ".png")
+            prompt["71"]["inputs"]["image"] = os.path.join(INPUT_DIR, "InputImage_InstantID_hyperlora_2" + current_time + ".png")
+            prompt["73"]["inputs"]["custom_path"] = os.path.join(OUTPUT_DIR_INSTANTID_HYPERLORA)
+            prompt["73"]["inputs"]["filename_prefix"] = "OutputImage_InstantID_hyperlora_" + current_time
 
             # Xử lý ảnh tải lên
             image = Image.fromarray(input_image)
@@ -238,7 +240,15 @@ def generate_instant_id_hyperlora(seed, input_image, prompt_text, width, height,
             scale_factor = 512 / min_side
             new_size = (round(image.size[0] * scale_factor), round(image.size[1] * scale_factor))
             resized_image = image.resize(new_size)
-            resized_image.save(os.path.join(INPUT_DIR, "InputImage_InstantID_hyperlora_" + current_time + ".png"))
+            resized_image.save(os.path.join(INPUT_DIR, "InputImage_InstantID_hyperlora_1" + current_time + ".png"))
+
+            # Xử lý ảnh tải lên
+            image2 = Image.fromarray(input_image2)
+            min_side = min(image2.size)
+            scale_factor = 512 / min_side
+            new_size = (round(image2.size[0] * scale_factor), round(image2.size[1] * scale_factor))
+            resized_image2 = image2.resize(new_size)
+            resized_image2.save(os.path.join(INPUT_DIR, "InputImage_InstantID_hyperlora_2" + current_time + ".png"))
 
             # Bắt đầu quá trình tạo ảnh
             previous_image = get_latest_image_InstantID_hyperlora(OUTPUT_DIR_INSTANTID_HYPERLORA)

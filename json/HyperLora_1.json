@@ -242,7 +242,7 @@
   "58": {
     "inputs": {
       "add_noise": "enable",
-      "noise_seed": 48847854218566,
+      "noise_seed": 10767780367164,
       "steps": 12,
       "cfg": 1,
       "sampler_name": "dpmpp_2m",
@@ -290,7 +290,7 @@
       "pixel_upscaler": "4x-UltraSharp.pth",
       "upscale_by": 1.5000000000000002,
       "use_same_seed": false,
-      "seed": 92979561234766,
+      "seed": 78730486053753,
       "hires_steps": 12,
       "denoise": 0.4000000000000001,
       "iterations": 1,
@@ -382,6 +382,27 @@
     "class_type": "LoadImage",
     "_meta": {
       "title": "Load Image"
+    }
+  },
+  "73": {
+    "inputs": {
+      "custom_path": "",
+      "filename_prefix": "comfyui",
+      "timestamp": "None",
+      "format": "png",
+      "quality": 80,
+      "meta_data": false,
+      "blind_watermark": "",
+      "save_workflow_as_json": false,
+      "preview": true,
+      "images": [
+        "58",
+        5
+      ]
+    },
+    "class_type": "LayerUtility: SaveImagePlus",
+    "_meta": {
+      "title": "LayerUtility: SaveImage Plus(Advance)"
     }
   }
 }

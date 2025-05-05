@@ -42,11 +42,11 @@ def tab1_interface():
     )
     
     # Hàm tạo ảnh với progress bar
-    def generate_image_with_progress(seed, prompt, width, height, model, progress=gr.Progress()):                  
-        image = generate_image_TextToImage(seed, prompt, width, height, model)
+    def generate_image_with_progress(seed, prompt, width, height, model, progress=gr.Progress()):     
         for i in range(80):
             progress(i/100, desc="Đang tạo ảnh...")
-            time.sleep(5/80)
+            time.sleep(5/80)             
+        image = generate_image_TextToImage(seed, prompt, width, height, model)
         time.sleep(1)
         progress(1.0, desc="Hoàn thành!")
             

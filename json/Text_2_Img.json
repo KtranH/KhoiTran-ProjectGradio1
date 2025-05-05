@@ -14,6 +14,12 @@
         "22",
         0
       ],
+      "speak_and_recognation": {
+        "__value__": [
+          false,
+          true
+        ]
+      },
       "clip": [
         "7",
         1
@@ -26,7 +32,13 @@
   },
   "9": {
     "inputs": {
-      "text": "watermark,long neck,reality,photorealistic,ugly,deformed,noisy,blurry,low contrast,text,open mouth,big forehead,",
+      "text": "(worst quality, low quality, illustration, 3d, 2d, painting, cartoons, sketch), open mouth\n\n",
+      "speak_and_recognation": {
+        "__value__": [
+          false,
+          true
+        ]
+      },
       "clip": [
         "7",
         1
@@ -51,7 +63,7 @@
   "12": {
     "inputs": {
       "add_noise": "enable",
-      "noise_seed": 227605186335409,
+      "noise_seed": 369546629989071,
       "steps": 8,
       "cfg": 1,
       "sampler_name": "euler",
@@ -82,7 +94,7 @@
         2
       ],
       "script": [
-        "30",
+        "33",
         0
       ]
     },
@@ -95,42 +107,36 @@
     "inputs": {
       "action": "append",
       "tidy_tags": "yes",
-      "text_a": "1girl, cute girl",
-      "text_b": "3D style",
-      "text_c": ""
+      "text_a": "1girl, cute girl, 3D girl, pixar",
+      "text_b": "fcsks fxhks fhyks",
+      "text_c": "",
+      "speak_and_recognation": {
+        "__value__": [
+          false,
+          true
+        ]
+      },
+      "result": "1girl, cute girl, 3D girl, pixar, fcsks fxhks fhyks"
     },
     "class_type": "StringFunction|pysssss",
     "_meta": {
       "title": "String Function 🐍"
     }
   },
-  "29": {
-    "inputs": {
-      "file_path": "D:\\\\ProjectPython\\\\gradioApp\\\\output\\\\text2Img",
-      "images": [
-        "12",
-        5
-      ]
-    },
-    "class_type": "SaveImageToPath",
-    "_meta": {
-      "title": "Save Image To Path"
-    }
-  },
-  "30": {
+  "33": {
     "inputs": {
       "upscale_type": "latent",
       "hires_ckpt_name": "(use same)",
-      "latent_upscaler": "ttl_nn.SDXL",
+      "latent_upscaler": "nearest-exact",
       "pixel_upscaler": "4x-UltraSharp.pth",
       "upscale_by": 1.25,
       "use_same_seed": false,
-      "seed": 709713276517827,
-      "hires_steps": 4,
-      "denoise": 0.5,
+      "seed": 406834766644134,
+      "hires_steps": 12,
+      "denoise": 0.56,
       "iterations": 1,
       "use_controlnet": false,
-      "control_net_name": "SD1.5\\control_sd15_inpaint_depth_hand_fp16.safetensors",
+      "control_net_name": "FLUX.1\\Shakker-Labs-ControlNet-Union-Pro-2.0\\FLUX.1-dev-ControlNet-Union-Pro-2.0.safetensors",
       "strength": 1,
       "preprocessor": "none",
       "preprocessor_imgs": false
@@ -138,6 +144,27 @@
     "class_type": "HighRes-Fix Script",
     "_meta": {
       "title": "HighRes-Fix Script"
+    }
+  },
+  "49": {
+    "inputs": {
+      "custom_path": "D:\\ProjectPython\\gradioApp\\output\\text2Img",
+      "filename_prefix": "comfyui",
+      "timestamp": "None",
+      "format": "png",
+      "quality": 80,
+      "meta_data": false,
+      "blind_watermark": "",
+      "save_workflow_as_json": false,
+      "preview": true,
+      "images": [
+        "12",
+        5
+      ]
+    },
+    "class_type": "LayerUtility: SaveImagePlus",
+    "_meta": {
+      "title": "LayerUtility: SaveImage Plus(Advance)"
     }
   }
 }

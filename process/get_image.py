@@ -82,3 +82,19 @@ def get_latest_image_InstantID(folder):
     except Exception as e:
         print(f"Lỗi khi lấy ảnh: {e}")
         return None
+# Lấy kết quả từ trong thư mục Output instantID hyperlora
+def get_latest_image_InstantID_hyperlora(folder):
+    try:
+        # Lấy các file có format đúng
+        files = [f for f in os.listdir(folder) 
+                if f.startswith('OutputImage_InstantID_hyperlora_') and f.endswith('.png')]
+        if not files:
+            return None
+        
+        # Lấy file có timestamp lớn nhất
+        latest_image = os.path.join(folder, max(files))
+        return latest_image
+        
+    except Exception as e:
+        print(f"Lỗi khi lấy ảnh: {e}")
+        return None

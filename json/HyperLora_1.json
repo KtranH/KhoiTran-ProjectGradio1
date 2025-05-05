@@ -1,0 +1,387 @@
+{
+  "7": {
+    "inputs": {
+      "ckpt_name": "SDXL\\realvisxlV50_v50LightningBakedvae.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "11": {
+    "inputs": {
+      "width": 512,
+      "height": 768,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "22": {
+    "inputs": {
+      "action": "append",
+      "tidy_tags": "yes",
+      "text_a": "1girl, white shirt, simple background, white background, white skin, long hair, blone hair",
+      "text_b": "fcsks fxhks fhyks",
+      "text_c": "",
+      "speak_and_recognation": {
+        "__value__": [
+          false,
+          true
+        ]
+      }
+    },
+    "class_type": "StringFunction|pysssss",
+    "_meta": {
+      "title": "String Function 🐍"
+    }
+  },
+  "30": {
+    "inputs": {
+      "images": [
+        "58",
+        5
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "35": {
+    "inputs": {
+      "hyper_lora": [
+        "36",
+        0
+      ],
+      "images": [
+        "70",
+        0
+      ]
+    },
+    "class_type": "HyperLoRAFaceAttr",
+    "_meta": {
+      "title": "HyperLoRA Face Attr"
+    }
+  },
+  "36": {
+    "inputs": {
+      "model": "sdxl_hyper_id_lora_v1_fidelity",
+      "dtype": "fp16",
+      "config": [
+        "37",
+        0
+      ]
+    },
+    "class_type": "HyperLoRALoader",
+    "_meta": {
+      "title": "HyperLoRA Loader"
+    }
+  },
+  "37": {
+    "inputs": {
+      "image_processor": "clip_vit_large_14_processor",
+      "image_encoder": "clip_vit_large_14",
+      "resampler.dim": 1024,
+      "resampler.dim_head": 64,
+      "resampler.heads": 12,
+      "resampler.depth": 4,
+      "resampler.ff_mult": 4,
+      "encoder_types": "clip + arcface",
+      "face_analyzer": "antelopev2",
+      "id_embed_dim": 512,
+      "num_id_tokens": 16,
+      "hyper_dim": 128,
+      "lora_rank": 8,
+      "has_base_lora": false
+    },
+    "class_type": "HyperLoRAConfig",
+    "_meta": {
+      "title": "HyperLoRA Config"
+    }
+  },
+  "38": {
+    "inputs": {
+      "grayscale": false,
+      "remove_background": true,
+      "hyper_lora": [
+        "36",
+        0
+      ],
+      "images": [
+        "70",
+        0
+      ],
+      "face_attr": [
+        "35",
+        0
+      ]
+    },
+    "class_type": "HyperLoRAIDCond",
+    "_meta": {
+      "title": "HyperLoRA ID Cond"
+    }
+  },
+  "39": {
+    "inputs": {
+      "hyper_lora": [
+        "36",
+        0
+      ],
+      "id_cond": [
+        "38",
+        0
+      ]
+    },
+    "class_type": "HyperLoRAGenerateIDLoRA",
+    "_meta": {
+      "title": "HyperLoRA Generate ID LoRA"
+    }
+  },
+  "40": {
+    "inputs": {
+      "weight": 0.9,
+      "model": [
+        "7",
+        0
+      ],
+      "lora": [
+        "39",
+        0
+      ]
+    },
+    "class_type": "HyperLoRAApplyLoRA",
+    "_meta": {
+      "title": "HyperLoRA Apply LoRA"
+    }
+  },
+  "41": {
+    "inputs": {
+      "image": "3-9243-4832.jpg"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "47": {
+    "inputs": {
+      "instantid_file": "ip-adapter.bin"
+    },
+    "class_type": "InstantIDModelLoader",
+    "_meta": {
+      "title": "Load InstantID Model"
+    }
+  },
+  "48": {
+    "inputs": {
+      "provider": "CPU"
+    },
+    "class_type": "InstantIDFaceAnalysis",
+    "_meta": {
+      "title": "InstantID Face Analysis"
+    }
+  },
+  "49": {
+    "inputs": {
+      "control_net_name": "SDXL\\instantid\\diffusion_pytorch_model.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "50": {
+    "inputs": {
+      "ip_weight": 0,
+      "cn_strength": 0.6000000000000001,
+      "start_at": 0,
+      "end_at": 1,
+      "noise": 0,
+      "combine_embeds": "average",
+      "instantid": [
+        "47",
+        0
+      ],
+      "insightface": [
+        "48",
+        0
+      ],
+      "control_net": [
+        "49",
+        0
+      ],
+      "image": [
+        "70",
+        0
+      ],
+      "model": [
+        "7",
+        0
+      ],
+      "positive": [
+        "63",
+        0
+      ],
+      "negative": [
+        "64",
+        0
+      ],
+      "image_kps": [
+        "71",
+        0
+      ]
+    },
+    "class_type": "ApplyInstantIDAdvanced",
+    "_meta": {
+      "title": "Apply InstantID Advanced"
+    }
+  },
+  "58": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 48847854218566,
+      "steps": 12,
+      "cfg": 1,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "simple",
+      "start_at_step": 0,
+      "end_at_step": 10000,
+      "return_with_leftover_noise": "disable",
+      "preview_method": "auto",
+      "vae_decode": "true",
+      "model": [
+        "40",
+        0
+      ],
+      "positive": [
+        "50",
+        1
+      ],
+      "negative": [
+        "50",
+        2
+      ],
+      "latent_image": [
+        "11",
+        0
+      ],
+      "optional_vae": [
+        "7",
+        2
+      ],
+      "script": [
+        "62",
+        0
+      ]
+    },
+    "class_type": "KSampler Adv. (Efficient)",
+    "_meta": {
+      "title": "KSampler Adv. (Efficient)"
+    }
+  },
+  "62": {
+    "inputs": {
+      "upscale_type": "latent",
+      "hires_ckpt_name": "(use same)",
+      "latent_upscaler": "ttl_nn.SDXL",
+      "pixel_upscaler": "4x-UltraSharp.pth",
+      "upscale_by": 1.5000000000000002,
+      "use_same_seed": false,
+      "seed": 92979561234766,
+      "hires_steps": 12,
+      "denoise": 0.4000000000000001,
+      "iterations": 1,
+      "use_controlnet": false,
+      "control_net_name": "FLUX.1\\Shakker-Labs-ControlNet-Union-Pro-2.0\\FLUX.1-dev-ControlNet-Union-Pro-2.0.safetensors",
+      "strength": 0,
+      "preprocessor": "none",
+      "preprocessor_imgs": false
+    },
+    "class_type": "HighRes-Fix Script",
+    "_meta": {
+      "title": "HighRes-Fix Script"
+    }
+  },
+  "63": {
+    "inputs": {
+      "text": [
+        "22",
+        0
+      ],
+      "token_normalization": "length+mean",
+      "weight_interpretation": "A1111",
+      "speak_and_recognation": {
+        "__value__": [
+          false,
+          true
+        ]
+      },
+      "clip": [
+        "65",
+        0
+      ]
+    },
+    "class_type": "BNK_CLIPTextEncodeAdvanced",
+    "_meta": {
+      "title": "CLIP Text Encode (Advanced)"
+    }
+  },
+  "64": {
+    "inputs": {
+      "text": "(worst quality, low quality, illustration, 3d, 2d, painting, cartoons, sketch), open mouth\n",
+      "token_normalization": "length+mean",
+      "weight_interpretation": "A1111",
+      "speak_and_recognation": {
+        "__value__": [
+          false,
+          true
+        ]
+      },
+      "clip": [
+        "65",
+        0
+      ]
+    },
+    "class_type": "BNK_CLIPTextEncodeAdvanced",
+    "_meta": {
+      "title": "CLIP Text Encode (Advanced)"
+    }
+  },
+  "65": {
+    "inputs": {
+      "stop_at_clip_layer": -2,
+      "clip": [
+        "7",
+        1
+      ]
+    },
+    "class_type": "CLIPSetLastLayer",
+    "_meta": {
+      "title": "CLIP Set Last Layer"
+    }
+  },
+  "70": {
+    "inputs": {
+      "image1": [
+        "41",
+        0
+      ]
+    },
+    "class_type": "ImpactMakeImageBatch",
+    "_meta": {
+      "title": "Make Image Batch"
+    }
+  },
+  "71": {
+    "inputs": {
+      "image": "Blackpink_Rosé_Rimowa_1.jpg"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  }
+}

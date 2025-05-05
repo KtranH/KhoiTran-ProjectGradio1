@@ -35,11 +35,11 @@ def tab2_interface():
     )
 
     # Hàm tạo ảnh với progress bar
-    def generate_image_with_progress(seed_number, input_image, width_slider, height_slider, progress=gr.Progress()):                  
-        image = generate_image_ImgToImg(seed_number, input_image, width_slider, height_slider)
+    def generate_image_with_progress(seed_number, input_image, width_slider, height_slider, progress=gr.Progress()): 
         for i in range(80):
             progress(i/100, desc="Đang tạo ảnh...")
-            time.sleep(5/80)
+            time.sleep(5/80)                 
+        image = generate_image_ImgToImg(seed_number, input_image, width_slider, height_slider)
         time.sleep(1)
         progress(1.0, desc="Hoàn thành!")
             
